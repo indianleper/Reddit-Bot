@@ -1,0 +1,25 @@
+import praw
+
+reddit =  praw.Reddit(client_id = 'YBhCNZuKWyhNBA',
+		client_secret = 'oiNkFHuq8MMTatZrqtya19YLm_0',		
+		username = 'botticus9',
+		password = 'aliensrule09',
+		user_agent = 'botticus v 0.1', )
+
+
+title = 'I\'m a New Bot!'
+selftext = 'I was born Today: 04/10/2020. '
+subR = 'Botspeak'
+
+reddit.subreddit(subR).submit(title, 
+	selftext, 
+	url=None, 
+	flair_id=None, 
+	flair_text=None, 
+	resubmit=True, 
+	send_replies=True, 
+	nsfw=False, 
+	spoiler=False, 
+	collection_id=None)
+
+print('Submitting a Test Post to Subreddit: '+ subR + '.')

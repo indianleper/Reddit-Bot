@@ -1,0 +1,46 @@
+import praw
+
+reddit =  praw.Reddit(client_id = 'YBhCNZuKWyhNBA',
+		client_secret = 'oiNkFHuq8MMTatZrqtya19YLm_0',		
+		username = 'botticus9',
+		password = 'aliensrule09',
+		user_agent = 'botticus v 0.1', )
+
+subreddit = reddit.subreddit('beansinthings')
+hot_beans = subreddit.hot(limit = 9)
+
+beans_title = []
+beans_cmts = []
+
+for submission in hot_beans:
+	if not submission.stickied: #this ignores 'stickied' posts which kept at the top of the subreddit
+		beans_title.append(submission.title)
+	for comment in submission.comments:
+		if hasattr(comment, 'body'):
+			if len(comment.body) < 14:
+				comment_lower = comment.body.lower()
+				if ('a') in comment_lower:
+					beans_cmts.append(comment.body)
+print(beans_title)
+print(beans_cmts)
+
+for x in range(0,6):
+	title = beans_title[x]
+	selftext = beans_cmts[x]
+	subR = 'Botspeak'
+	reddit.subreddit(subR).submit(title, 
+		selftext, 
+		url=None, 
+		flair_id=None, 
+		flair_text=None, 
+		resubmit=True, 
+		send_replies=True, 
+		nsfw=False, 
+		spoiler=False, 
+		collection_id=None)
+
+print('Submitting a Text Post to Subreddit: '+ subR + '.')
+
+
+
+
