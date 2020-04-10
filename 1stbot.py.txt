@@ -20,3 +20,8 @@ reddit.subreddit(subR).submit(title,
 	collection_id=None)
 
 print('Submitting a Test Post to Subreddit: '+ subR + '.')
+
+'''
+Output in terminal is: 'Submitting a Test Post to Subreddit: Botspeak.'
+Result of running code is to make a reddit post.
+'''
