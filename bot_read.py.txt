@@ -1,7 +1,7 @@
 import praw
 
-reddit =  praw.Reddit(client_id = 'ibHVTVp-3rZdEw',
-		client_secret = 'rMFK2tvpqGgJ4WCZZEbTTqYhMgo',		
+reddit =  praw.Reddit(client_id = '',
+		client_secret = '',		
 		username = '',
 		password = '',
 		user_agent = 'controller bot v 0.1', )
