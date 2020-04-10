@@ -1,0 +1,29 @@
+import praw
+
+reddit =  praw.Reddit(client_id = 'ibHVTVp-3rZdEw',
+		client_secret = 'rMFK2tvpqGgJ4WCZZEbTTqYhMgo',		
+		username = 'bot_controller',
+		password = 'aliensrule09.',
+		user_agent = 'controller bot v 0.1', )
+
+subreddit = reddit.subreddit('botspeak') 
+
+bot_phrase = 'I am a bot! Thank you for mentioning bots in the Botspeak subreddit!' #reply
+
+keywords = {'bot', 'moderator',} #makes a set of keywords to find in subreddits
+
+num_Found = 0
+for submission in subreddit.hot(limit=10): 
+	norm_title = submission.title.lower()
+	for word in keywords: 
+		if word in norm_title: 
+			num_Found = num_Found + 1
+			print('Bot replying to: ')
+			print("Title: ", submission.title)
+			print("Text: ", submission.selftext)
+			print("Score: ", submission.score)
+			print()
+			submission.reply(bot_phrase)
+if num_Found == 0:
+	print()
+	print('Sorry, didn\'t find any posts with those keywords.')

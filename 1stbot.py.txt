@@ -1,0 +1,22 @@
+import praw
+
+reddit =  praw.Reddit(client_id = 'ibHVTVp-3rZdEw',
+		client_secret = 'rMFK2tvpqGgJ4WCZZEbTTqYhMgo',		
+		username = 'bot_controller',
+		password = 'aliensrule09.',
+		user_agent = 'controller bot v 0.1', )
+title = 'Test Title'
+selftext = 'Test Self-Text'
+subR = 'Botspeak'
+reddit.subreddit(subR).submit(title, 
+	selftext, 
+	url=None, 
+	flair_id=None, 
+	flair_text=None, 
+	resubmit=True, 
+	send_replies=True, 
+	nsfw=False, 
+	spoiler=False, 
+	collection_id=None)
+
+print('Submitting a Test Post to Subreddit: '+ subR + '.')
